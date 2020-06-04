@@ -1,42 +1,46 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm'
 // import ReactDOM from 'react-dom';
 
 
 
 const todo = [
   {
-    task: 'Do Laundry',
+    name: 'Make Bed/Coffee',
     id: Date.now(),
-    completed: false
+    purchased: false
   },
   {
-    task: 'Clean Room',
+    name: 'Walk dog/Workout',
     id: Date.now(),
-    completed: false
+    purchased: false
   },
   {
-    task: 'Grocery store',
+    name: 'Do Laundry',
     id: Date.now(),
-    completed: false
+    purchased: false
   },
   {
-    task: 'Workout',
+    name: 'Grocery Shopping/Target',
     id: Date.now(),
-    completed: false
-  },
-]
+    purchased: false
+  }
+];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  // Constructor with state
+
+  // Class methods to update state
+
   render() {
     return (
-      <div>
-        <h2>Gabbys Todo List</h2>
-        <p> I AM PUTTING THIS HERE TO TEST THAT THIS IS WORKING</p>
-        <TodoList />
+      <div className="App">
+        <div className="header">
+          <h1>Gabbys Todo List</h1>
+          <TodoForm />
+        </div>
+        <TodoList todo={todo} />
       </div>
     );
   }
