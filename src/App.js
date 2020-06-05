@@ -1,72 +1,91 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm'
+import "./components/Todo.css";
 
 
 
 const todo = [
   {
-    name: 'Make Bed/Coffee',
-    id: Date.now(),
-    purchased: false
+    name: 'Make Coffee',
+    id: 1,
+    completed: false
   },
-  {
-    name: 'Walk dog/Workout',
-    id: Date.now(),
-    purchased: false
-  },
-  {
-    name: 'Do Laundry***',
-    id: Date.now(),
-    purchased: false
-  },
-  {
-    name: 'Grocery Shopping/Target',
-    id: Date.now(),
-    purchased: false
-  }
 
+  {
+    name: 'Walk the dog/Workout',
+    id: 2,
+    completed: false
+  },
+
+  {
+    name: 'Go to the grocery store',
+    id: 3,
+    completed: false
+  }
 ];
 
 class App extends React.Component {
-  // Constructor with state
   constructor() {
     super();
     this.state = {
       todo
-    }
+    };
   }
 
-
-  // Class methods to update state
-
-  
   addTask = (e, task) => {
     e.preventDefault();
     const newTask = {
       name: task,
       id: Date.now(),
-      purchased: false
+      completed: false
     };
     this.setState({
       todo: [...this.state.todo, newTask]
-    })
-  }
+    });
+  };
 
-  
+  toggleTask = itemId => {
+    console.log(itemId);
+    this.setState({
+      todo: this.state.todo.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      todo: this.state.todo.filter(item => !item.completed)
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <div className="todo">
+        <div className="header">
           <h1>Gabbys Todo List</h1>
-          <TodoForm addTask={this.addTask}/>
+          <TodoForm addTask={this.addTask} />
         </div>
-        <TodoList 
-        todo={this.state.todo} />
+        <TodoList
+          todo={this.state.todo}
+          toggleTask={this.toggleTask}
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }
 }
 
+
 export default App;
+
+
+
