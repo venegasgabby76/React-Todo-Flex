@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoForm from "./components/TodoForm";
 
 
 //i am going to hanve a couple of mock todos that i need to get done instead of just starting totally blank
@@ -10,17 +11,17 @@ const todo = [
     completed: false
   },
   {
-    task: 'Clean room',
+    task: 'Walk the dog',
     id: 1,
     completed: false
   },
   {
-    task: 'Clean room',
+    task: 'Review previous lecture',
     id: 2,
     completed: false
   },
   {
-    task: 'Clean room',
+    task: 'Start homework',
     id: 3,
     completed: false
   }
@@ -34,7 +35,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        
+        <TodoForm />
       </div>
     );
   }
