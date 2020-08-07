@@ -5,21 +5,21 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            task: ''
+            tasks: ''
         };
     }
 
     handleChanges = e => {
         this.setState({
-            task: e.target.value
+            tasks: e.target.value
         })
     };
 
     addItem = e => {
         e.preventDefault();
-        this.props.addTask(this.state.task)
+        this.props.addTask(this.state.tasks)
         this.setState({
-            task: ''
+            tasks: ''
         })
     }
 
@@ -30,7 +30,7 @@ class TodoForm extends React.Component {
                 type= "text"
                 name="task"
                 placeholder="What needs to get done?"
-                value={this.state.task}
+                value={this.state.tasks}
                 onChange={this.handleChanges}
                 />
                 <br />

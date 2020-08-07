@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Tasks = props => {
-
-    console.log(props);
-
+const Todos = props => {
     return (
-        <div>
-            <p>{props.task.name}</p>
-        </div>
-    )
-}
-
-export default Tasks;
+      <div
+        // className={`item${props.todo.purchased ? " purchased" : ""}`}
+        // onClick={() => props.toggleItem(props.todo.id)}
+      >
+        <p>{props.tasks.name}</p>
+      </div>
+    );
+  };
+  
+  export default Todos;

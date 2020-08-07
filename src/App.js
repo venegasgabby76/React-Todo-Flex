@@ -6,22 +6,22 @@ import TodoList from "./components/TodoList"
 
 const todo = [
   {
-    task: 'Clean room',
+    name: 'Clean room',
     id: 0,
     completed: false
   },
   {
-    task: 'Walk the dog',
+    name: 'Walk the dog',
     id: 1,
     completed: false
   },
   {
-    task: 'Review previous lecture',
+    name: 'Review previous lecture',
     id: 2,
     completed: false
   },
   {
-    task: 'Start homework',
+    name: 'Start homework',
     id: 3,
     completed: false
   }
@@ -39,9 +39,9 @@ constructor() {
   };
 }
 
-  addTask = tasks => {
+  addTask = (tasks) => {
     const newTask = {
-      task: tasks,
+      name: tasks,
       id: Date.now(),
       completed: false
     };
