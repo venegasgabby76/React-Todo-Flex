@@ -5,33 +5,33 @@ class TodoForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            tasks: ''
+            task: ''
         };
     }
 
     handleChanges = e => {
         this.setState({
-            tasks: e.target.value
+            task: e.target.value
         })
     };
 
     addItem = e => {
         e.preventDefault();
-        this.props.addTask(this.state.tasks)
+        this.props.addTask(this.state.task)
         this.setState({
-            tasks: ''
+            task: ''
         })
     }
 
     render() {
         return (
-            <form onSubmit = {this.addItem}>
-                <input 
-                type= "text"
-                name="task"
-                placeholder="What needs to get done?"
-                value={this.state.tasks}
-                onChange={this.handleChanges}
+            <form onSubmit={this.addItem}>
+                <input
+                    type="text"
+                    name="task"
+                    placeholder="What needs to get done?"
+                    value={this.state.task}
+                    onChange={this.handleChanges}
                 />
                 <br />
                 <button>Add Your Task!</button>
